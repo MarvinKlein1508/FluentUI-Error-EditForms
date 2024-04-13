@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new Fluent Blazor app.
+
+<EditForm Model="Input" OnValidSubmit="Search">
+
+    <FluentTextField @bind-Value="Input.Name" Label="Name" />
+
+    <FluentButton Type="ButtonType.Submit">Search</FluentButton>
+
+</EditForm>
+
+@code {
+    public Animal Input { get; set; } = new();
+
+    public class Animal
+    {
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public void Search()
+    {
+        var name = Input.Name;
+    }
+}
